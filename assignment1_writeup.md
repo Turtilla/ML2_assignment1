@@ -14,7 +14,7 @@ All of the code used here can be found in the modelA2.py file, but also commente
 + measures() takes the lists from test_model() and calculates different evaluation measures, like accuracy, precision, recall, f1.
 
 ### PART 3 - TRAINING AND TESTING  
-Here multiple different combinations of data and hyperparameters were used (different batch sizes and epoch numbers, different data split sizes) to finally submit the best model, which is saved as model2k.pickle.
+Here multiple different combinations of data and hyperparameters were used (different batch sizes and epoch numbers, different data split sizes) to finally submit the best model, which is saved as model2k.pickle. Since it is too large to share it on GitHub, it can be found here: https://drive.google.com/file/d/1-Sj-U2XKlpgCLWjaI4ooxkAO173Rg8aI/view?usp=sharing, and the other files (testing loader, datasets, etc.) can be found here, along with the model: https://drive.google.com/drive/folders/1aBn6oqmNcSZ9-AKw4ELFi0IOmzovKOV1?usp=sharing. In case we are allowed to submit the whole assignment as a .zip file, they will be included there.
 
 ### PART 4 - EVALUATION AND ERROR ANALYSIS  
 The best performance that I got was while running the 2k "smart" dataset/dataloader for 20 epochs. 1k, both smart and not (10 epochs) was not far behind, while the not "smart" 2k one was significantly worse. These were all run with the hyperparameters that are "built in" into the functions and classes in the modelA2.py file.  
