@@ -32,3 +32,11 @@ Given that there isn't much correlation between what items system could recogniz
 ### BONUS PART - NEGATIVE SAMPLING  
 Provided that I understood the clarification posted on Canvas well, I decided to implement this at the level of generating samples. Since the coco dataset only includes "correct" captions, the most "stupid" way of generating the incorrect class was shuffling the captions and images around, and making sure they did not end up back at the right picture (as there are 5 pairs that have the same picture). However, while a caption might not initially come from the same image, it may still be misleadingly similar, and, perhaps, might still be actually a decent caption. To avoid these "tricky" examples from making their way into the data (and thus ruining the system's definition of good vs. bad caption), I implemented an optional argument "smart" in create_samples() which then also looks at the coco classes that the images/captions belong to - so the salient entities featured in them, such as zebra, carrot, cat, or horse. The negative samples are then generated in such a way that the image and the mismatched caption do not share any classes. This means that there shouldn't be anything in the caption that overlaps in "meaning" with the image in terms of entities, hopefully making it easier for the system to match names to things in the images, so to say.  
 When tested with 1k datasets, the difference between smart and not smart sampling was negligible. However, for the larger sets, it became more visible, and without the smart sampling the models performed really badly. 
+
+### EXTRA PART: PIPELINE TESTING
+Since the trained model is so large that I cannot share it on GitHub, here is a quick way for you to test the pipeline with a small amount of data, just to see that it works. Otherwise I have explained above how you can download the trained model and the data to test it on.
+
+##### Preparatory steps:
++ Make sure that the COCO objects and the BERT model in Part 1 are active.
++ Make sure that the definitions for all the functions defined in the sections earlier have been run.
++ Technically you can also just run the whole notebook, but that includes larger data chunks (2k samples, 20 epochs).
